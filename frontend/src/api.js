@@ -3,7 +3,7 @@
 // Base URL for the FastAPI backend.
 // Replace with deployed Render URL in production.
 // =======================================================
-export const API_URL = "http://127.0.0.1:8000";
+export const API_URL = "https://product-chatbot-mji0.onrender.com";
 
 /**
  * Robust fetch helper that attempts direct connection to API_URL,
