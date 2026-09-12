@@ -1,94 +1,47 @@
 # 🛒 E-commerce Product & Order Chatbot
 
-An AI-powered e-commerce chatbot that helps users get product and order information using an Agentic AI workflow.
+An AI-powered e-commerce application that combines **Agentic AI, REST APIs, React, FastAPI, and MySQL** to provide product and order assistance.
 
-The application includes a customer chatbot, product selection, product/order management, REST APIs, and a cloud-hosted MySQL database.
+The system has two main parts:
 
----
+- 🤖 **Customer Chatbot** — Customers can ask questions about products and orders.
+- 🛠️ **Admin Panel** — Admins can manage products and orders using CRUD operations.
 
-## 🚀 Live Demo
-
-**Customer Chat:**  
-[Open Customer Chat](YOUR_FRONTEND_URL)
-
-**Admin Panel:**  
-[Open Admin Panel](YOUR_FRONTEND_URL/admin)
-
-**API Documentation:**  
-[FastAPI Swagger Docs](YOUR_BACKEND_URL/docs)
+The AI agent retrieves product and order information through backend REST APIs instead of directly accessing the database.
 
 ---
 
-## ✨ Features
+## 🚀 Live Application
 
-### 🤖 AI Customer Chatbot
+### 🤖 Customer Chat
+https://product-chatbot-frontend.onrender.com/customer/chat
 
-- Ask questions about products and orders.
-- Search for products by name without selecting them.
-- Ask for product prices and details.
-- Ask about order information.
-- Supports selected-product context.
-- Understands follow-up questions such as:
-  - "Tell me about this product"
-  - "What is its price?"
-- Handles simple casual conversations.
-- Restricts responses to product and order related information.
+### 🛠️ Admin Panel
+https://product-chatbot-frontend.onrender.com/admin
 
-### 🛍️ Product Management
+### 📚 Backend API Documentation
+https://product-chatbot-mji0.onrender.com/docs
 
-Admin can:
-
-- View all products
-- Add new products
-- Update products
-- Delete products
-- Manage products through the frontend admin panel
-
-### 📦 Order Management
-
-Admin can:
-
-- View orders
-- Add orders
-- Update order status/details
-- Delete orders
-- View product information associated with orders
-
-### ☁️ Cloud Deployment
-
-The application is deployed using:
-
-- Frontend → Render Static Site
-- Backend → Render Web Service
-- Database → Aiven MySQL
+### 💻 GitHub Repository
+https://github.com/sonikrupa74-alt/product-chatbot
 
 ---
 
-## 🏗️ Architecture
+# ✨ Features
+
+## 🤖 AI Customer Chatbot
+
+The chatbot allows users to ask questions about products and orders.
+
+### Product Queries
+
+Examples:
 
 ```text
-                    ┌──────────────────────┐
-                    │      Customer        │
-                    │    React Frontend    │
-                    │       Render        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    FastAPI Backend   │
-                    │        Render        │
-                    └──────────┬───────────┘
-                               │
-                  ┌────────────┴────────────┐
-                  │                         │
-                  ▼                         ▼
-        ┌──────────────────┐      ┌──────────────────┐
-        │   AI Agent       │      │ Product / Order  │
-        │ LangGraph +      │      │ REST APIs        │
-        │ LangChain + Groq │      └────────┬─────────┘
-        └──────────────────┘               │
-                                           ▼
-                                  ┌──────────────────┐
-                                  │    Aiven MySQL   │
-                                  │   Cloud Database  │
-                                  └──────────────────┘
+Tell me about ipad
+
+What is the price of iPhone 17?
+
+Tell me about MacBook Air M4
+
+Show me all products
