@@ -470,9 +470,7 @@ This project demonstrates practical implementation of:
 
 ---
 
-## 👨‍💻 Author
-
-### Krupa Soni
+### - Krupa Soni
 
 **AI/ML • Agentic AI • Python • FastAPI • Automation**
 
