@@ -4,10 +4,7 @@ from database import get_db_connection
 
 router = APIRouter()
 
-
-# =========================
 # Order Model
-# =========================
 
 class Order(BaseModel):
     customer_name: str
@@ -16,9 +13,7 @@ class Order(BaseModel):
     status: str = "Processing"
 
 
-# =========================
 # GET ALL ORDERS
-# =========================
 
 @router.get("/orders")
 def get_orders():
@@ -57,10 +52,7 @@ def get_orders():
     return orders
 
 
-# =========================
 # ADD ORDER
-# =========================
-
 @router.post("/orders")
 def add_order(order: Order):
 
