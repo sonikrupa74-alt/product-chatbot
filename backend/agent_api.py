@@ -13,10 +13,7 @@ load_dotenv()
 
 router = APIRouter()
 
-# =========================
 # BACKEND API URL
-# =========================
-
 BACKEND_URL = os.getenv(
     "BACKEND_URL",
     "http://127.0.0.1:8000"
@@ -26,10 +23,7 @@ PRODUCT_API = f"{BACKEND_URL}/products"
 ORDER_API = f"{BACKEND_URL}/orders"
 
 
-# =========================
 # PRODUCT API TOOLS
-# =========================
-
 @tool
 def get_products():
     """Get all available products and their prices."""
@@ -114,10 +108,7 @@ def get_product_by_name(name: str):
     }
 
 
-# =========================
 # ORDER API TOOLS
-# =========================
-
 @tool
 def get_orders():
     """Get all orders."""
@@ -140,20 +131,13 @@ def get_order(order_id: int):
     return response.json()
 
 
-# =========================
 # GROQ LLM
-# =========================
-
 llm = ChatGroq(
     model="openai/gpt-oss-20b",
     temperature=0
 )
 
-
-# =========================
 # TOOLS
-# =========================
-
 tools = [
     get_products,
     get_product,
@@ -163,19 +147,11 @@ tools = [
 ]
 
 
-# =========================
 # AGENT
-# =========================
-
 agent = create_react_agent(
     model=llm,
     tools=tools
 )
-
-
-# =========================
-# CASUAL RESPONSES
-# =========================
 
 CASUAL_RESPONSES = {
 
@@ -276,10 +252,6 @@ def get_casual_response(text: str):
 
     return CASUAL_RESPONSES.get(cleaned)
 
-
-# =========================
-# SYSTEM PROMPT
-# =========================
 
 system_message = """
 You are a helpful Product and Order Chatbot.
@@ -403,19 +375,12 @@ Never make up information.
 Keep responses short, simple, and friendly.
 """
 
-
-# =========================
 # CHAT REQUEST
-# =========================
-
 class ChatRequest(BaseModel):
     message: str
 
 
-# =========================
 # CHAT API
-# =========================
-
 @router.post("/chat")
 def chat(request: ChatRequest):
 
