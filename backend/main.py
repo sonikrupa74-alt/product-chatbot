@@ -9,10 +9,8 @@ from agent_api import router as agent_router
 app = FastAPI()
 
 
-# =======================================================
 # CORS CONFIGURATION
 # Allows the React frontend to communicate with FastAPI
-# =======================================================
 
 app.add_middleware(
     CORSMiddleware,
@@ -26,19 +24,13 @@ app.add_middleware(
 )
 
 
-# =======================================================
 # API ROUTES
-# =======================================================
-
 app.include_router(product_router)
 app.include_router(order_router)
 app.include_router(agent_router)
 
 
-# =======================================================
 # HOME
-# =======================================================
-
 @app.get("/")
 def home():
     return {
